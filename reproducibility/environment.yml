@@ -1,0 +1,18 @@
+name: qbio
+channels: [conda-forge, defaults]
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - networkx
+  - fastapi
+  - uvicorn
+  - pydantic
+  - python-multipart
+  - streamlit
+  - plotly
+  - openpyxl
+  - pyarrow
