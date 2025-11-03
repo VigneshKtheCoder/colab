@@ -1287,10 +1287,14 @@ print("✅ Wrote app.py")
 
 # Cell 21 — Quick CLI test (prints JSON)
 sample = "GSM362947"  # change to any sample_id in your parquet
-!python qemd_cli.py \
-  --topo /content/drive/MyDrive/qemd_demo/ETC_topology.json \
-  --expr  /content/drive/MyDrive/qemd_demo/GSE14520_ETC_expression.parquet \
-  --sample {sample} --T 200 --dt 0.5 --gamma_min 0.0 --gamma_max 0.05 --gamma_steps 21
+import subprocess
+import sys
+
+subprocess.check_call([
+    sys.executable, "qemd_cli.py",
+    "--input", "/content/qemd_demo/data.json",
+    "--output", "/content/qemd_demo/results.json"
+])
 
 # ✅ Cell 22 — Final Streamlit Launcher (no ngrok needed)
 import sys
