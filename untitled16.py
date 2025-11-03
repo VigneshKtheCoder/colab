@@ -749,7 +749,11 @@ zip_path = "/content/qemd_results.zip"
 # If the ZIP doesn’t exist yet, recreate it quickly
 import os
 if not os.path.exists(zip_path):
-    !zip -r /content/qemd_results.zip /content/drive/MyDrive/qemd_demo
+    import shutil
+
+    # Create a zip file from a folder
+    shutil.make_archive("/content/qemd_results", 'zip', "/content/drive/MyDrive/qemd_demo")
+
 
 print("📦 Ready for download:", zip_path)
 files.download(zip_path)
