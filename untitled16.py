@@ -407,7 +407,13 @@ ALPHA = 0.05      # energy scale factor (was 0.02)
 J0    = 0.08      # base coupling (was 0.05)
 T_FINAL = 400.0   # total evolution time (was 150.0)
 
-!pip -q install GEOparse
+import sys
+import subprocess
+
+# Install GEOparse quietly
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "GEOparse"])
+
+# Now safely import your libraries
 import GEOparse, pandas as pd, numpy as np, re, os, json
 
 print("⬇️  Fetching GSE14520…")
@@ -931,7 +937,16 @@ plt.savefig(f"{BASE_DIR}/tsne_qmetrics_3d.png", dpi=180)
 plt.show()
 
 # Cell 16 — Deps + folders
-!pip -q install streamlit pyngrok typer==0.12.5 pandas numpy scipy matplotlib networkx plotly scikit-learn
+import sys
+import subprocess
+
+# Install all required packages quietly
+subprocess.check_call([
+    sys.executable, "-m", "pip", "install", "-q",
+    "streamlit", "pyngrok", "typer==0.12.5",
+    "pandas", "numpy", "scipy", "matplotlib",
+    "networkx", "plotly", "scikit-learn"
+])
 
 import os, textwrap, json
 BASE_DIR = "/content/drive/MyDrive/qemd_demo"
@@ -1274,7 +1289,10 @@ sample = "GSM362947"  # change to any sample_id in your parquet
   --sample {sample} --T 200 --dt 0.5 --gamma_min 0.0 --gamma_max 0.05 --gamma_steps 21
 
 # ✅ Cell 22 — Final Streamlit Launcher (no ngrok needed)
-!pip install -q streamlit pyngrok
+import sys
+import subprocess
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "streamlit", "pyngrok"])
 
 import threading, time, subprocess
 from IPython.display import display, HTML
