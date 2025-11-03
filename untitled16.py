@@ -1389,7 +1389,14 @@ print("🧾 README.md created")
 
 # --- Verify export ---
 print("\n✅ Export complete — repo contents:")
-!ls -lh /content/QuantumBio_QEMD_App
+import os
+
+folder_path = "/content/QuantumBio_QEMD_App"
+
+# List files with size (like `ls -lh`)
+for entry in os.scandir(folder_path):
+    size_kb = entry.stat().st_size / 1024
+    print(f"{entry.name:40} {size_kb:10.2f} KB")
 
 print("\nNext steps:")
 print("1️⃣  Download or push this folder to GitHub.")
