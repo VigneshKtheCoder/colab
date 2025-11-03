@@ -384,7 +384,12 @@ plt.plot(t, np.real([r[n_core-1, n_core-1] for r in rhos]), label=f'Site {n_core
 plt.xlabel('Time'); plt.ylabel('Population'); plt.title(f'Populations over time (γ={g_pick})')
 plt.legend(); plt.grid(True); plt.show()
 
-!pip install -q GEOparse numpy scipy matplotlib plotly ipywidgets pandas networkx
+import sys
+import subprocess
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-q",
+                       "GEOparse", "numpy", "scipy", "matplotlib",
+                       "plotly", "ipywidgets", "pandas", "networkx"])
 
 # from google.colab import drive
 # drive.mount('/content/drive')
